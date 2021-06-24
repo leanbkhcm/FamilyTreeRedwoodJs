@@ -17,23 +17,21 @@ async function main() {
   console.warn('Please define your seed data.')
 
   // // Change to match your data model and seeding needs
-  // const data = [
-  //   { name: 'alice', email: 'alice@example.com' },
-  //   { name: 'mark', email: 'mark@example.com' },
-  //   { name: 'jackie', email: 'jackie@example.com' },
-  //   { name: 'bob', email: 'bob@example.com' },
-  // ]
+  const data = [
+    { title: 'title1', body: 'body1' },
+    { title: 'title2', body: 'body2' },
+  ]
 
-  // // Note: if using PostgreSQL, using `createMany` to insert multiple records is much faster
-  // // @see: https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#createmany
-  // return Promise.all(
-  //   data.map(async (user) => {
-  //     const record = await db.user.create({
-  //       data: { name: user.name, email: user.email },
-  //     })
-  //     console.log(record)
-  //   })
-  // )
+  // Note: if using PostgreSQL, using `createMany` to insert multiple records is much faster
+  // @see: https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#createmany
+  return Promise.all(
+    data.map(async (post) => {
+      const record = await db.post.create({
+        data: { title: post.title, body: post.body },
+      })
+      console.log(record)
+    })
+  )
 }
 
 main()
