@@ -16,3 +16,11 @@ model Post {
   body      String
   createdAt DateTime @default(now())
 }
+
+
+model Person {
+  personId      Int      @id @default(autoincrement())
+  fatherId      Int
+  motherId      Int
+  birthDay      DateTime 
+}
