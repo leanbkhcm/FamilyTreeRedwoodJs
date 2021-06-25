@@ -22,5 +22,41 @@ model Person {
   personId      Int      @id @default(autoincrement())
   fatherId      Int
   motherId      Int
+  seqInFamilyId	Int
+  sex			String
   birthDay      DateTime 
+  remark  		 String
+}
+
+
+
+model Marriage {
+  marriageId    Int      @id @default(autoincrement())
+  maleId        Int
+  femaleId      Int
+  marriageDate   DateTime 
+  remark  		 String
+}
+
+
+
+model Association {
+  relationshipId    Int      @id @default(autoincrement())
+  person1Id        Int
+  person2Id      Int
+  remark  		 String
+}
+
+
+
+model Source {
+	sourceId	Int      @id @default(autoincrement())
+	nameSource	String
+	remark  	String
+}
+
+
+model LinkPersonSource {
+	personId    Int
+	sourceId	Int
 }
