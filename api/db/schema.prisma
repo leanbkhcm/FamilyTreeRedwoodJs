@@ -25,11 +25,12 @@ model Person {
   name          String
   hintName      String
   seqInFamilyId	Int
-  sex			String
+  sex			      String
   birthDay      DateTime 
   email         String  @unique
   phoneNo       String
   remark  		  String
+  LinkPersonSource  LinkPersonSource[]
 }
 
 
@@ -38,8 +39,8 @@ model Marriage {
   marriageId    Int      @id @default(autoincrement())
   maleId        Int
   femaleId      Int
-  marriageDate   DateTime 
-  remark  		 String
+  marriageDate  DateTime 
+  remark  		  String
 }
 
 
@@ -61,6 +62,10 @@ model Source {
 
 
 model LinkPersonSource {
-	personId    Int
-	sourceId	Int
+  LinkPersonSourceId       @id @default(autoincrement())
+	personId    Int?
+	sourceId	  Int?
+  Person      Person?      @relation(fields: [personId], references: [personId])
+  
+
 }
