@@ -25,6 +25,8 @@ model Person {
   seqInFamilyId	Int
   sex			String
   birthDay      DateTime 
+  email         String
+  phoneNo       String
   remark  		 String
 }
 
