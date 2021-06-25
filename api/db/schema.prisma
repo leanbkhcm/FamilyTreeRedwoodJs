@@ -22,6 +22,8 @@ model Person {
   personId      Int      @id @default(autoincrement())
   fatherId      Int
   motherId      Int
+  name          String
+  hintName      String
   seqInFamilyId	Int
   sex			String
   birthDay      DateTime 
