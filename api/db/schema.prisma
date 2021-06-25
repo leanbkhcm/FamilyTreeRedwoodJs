@@ -27,9 +27,9 @@ model Person {
   seqInFamilyId	Int
   sex			String
   birthDay      DateTime 
-  email         String
+  email         String  @unique
   phoneNo       String
-  remark  		 String
+  remark  		  String
 }
 
 
@@ -60,7 +60,7 @@ model Source {
 }
 
 
-//model LinkPersonSource {
-	//personId    Int
-	//sourceId	Int
-//}
+model LinkPersonSource {
+	personId    Int
+	sourceId	Int
+}
